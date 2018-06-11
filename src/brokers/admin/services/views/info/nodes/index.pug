@@ -1,0 +1,24 @@
+extends ./../../layouts/base.pug
+
+block content
+
+  include ./../submenu.pug
+
+  //- title
+
+  div(class="row")
+    div(class="col-12")          
+      h3.font-weight-light Nodes
+
+  //- body
+  div(class="row mt-2")
+
+    //- nodes
+    div(class="col-12")
+    
+      script.
+        setInterval(function(){
+          $("#cont-data").load("/panel/info/nodes/data");
+        }, 1000);
+
+      div(id="cont-data")

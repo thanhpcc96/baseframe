@@ -1,0 +1,62 @@
+fuge_global:
+  tail: true
+  monitor_excludes:
+    - '**/node_modules/**'
+    - '**/.git/**'
+    - '**/*.log'
+    - '**/data/**'
+
+data:
+  type: node
+  path: ../src/brokers/data/
+  run: node data.bootstrap.js 
+
+api:
+  type: node
+  path: ../src/brokers/api/
+  run: node api.bootstrap.js 
+
+ig:
+  type: node
+  path: ../src/brokers/ig/
+  run: node ig.bootstrap.js 
+
+bot:
+  type: node
+  path: ../src/brokers/bot/
+  run: node bot.bootstrap.js 
+
+list:
+  type: node
+  path: ../src/brokers/list/
+  run: node list.bootstrap.js 
+
+email:
+  type: node
+  path: ../src/brokers/email/
+  run: node email.bootstrap.js 
+
+filter:
+  type: node
+  path: ../src/brokers/filter/
+  run: node filter.bootstrap.js 
+
+admin:
+  type: node
+  path: ../src/brokers/admin/
+  run: node admin.bootstrap.js 
+
+config:
+  type: node
+  path: ../src/brokers/config/
+  run: node config.bootstrap.js 
+
+historical:
+  type: node
+  path: ../src/brokers/historical/
+  run: node historical.bootstrap.js 
+
+statistic:
+  type: node
+  path: ../src/brokers/statistic/
+  run: node statistic.bootstrap.js

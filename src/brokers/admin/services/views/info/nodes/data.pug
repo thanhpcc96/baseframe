@@ -1,0 +1,75 @@
+
+each node, index in nodes
+
+  div(class="card rounded-0 border-bottom-0")
+    
+    div(class="card-header pt-2 pb-2")
+      span(class="text-muted small")= node.id
+    
+    div(class="card-body pt-2 pb-2")
+
+      //- table 1
+      table(class="w-100")
+        thead
+          tr
+            td Type
+            td Available
+            td IPs
+            td OS
+            td OS release
+            td Hostname
+            td User uid
+            td Username
+            td Cli. type
+            td Ver.
+            td Lang ver.
+            td Process pid
+            td Cores
+            td Memory
+
+        tbody
+          tr.small
+            td= node.type
+            td(class=node.available ? 'text-success' : 'text-danger')= node.available
+            td= node.health ? node.health.net.ip.join(', ') : ''
+            td= node.health ? node.health.os.type : ''
+            td= node.health ? node.health.os.release : ''
+            td= node.health ? node.health.os.hostname : ''
+            td= node.health ? node.health.os.user.uid : ''
+            td= node.health ? node.health.os.user.username : ''
+            td= node.health ? node.health.client.type : ''
+            td= node.health ? node.health.client.version : ''
+            td= node.health ? node.health.client.langVersion : ''
+            td= node.health ? node.health.process.pid : ''
+            td= node.health ? node.health.cpu.cores : ''
+            td= node.health ? formatBytes(node.health.mem.total) : ''
+
+      //- table 2
+      table(class="w-100")
+        thead
+          tr
+            td OS uptime
+            td CPU
+            td Mem. free
+            td App mem.
+            td lastHeartbeat
+            td Req. counts
+            td RPS Req/sec
+            td Req. latency mean
+            td Req. latency median
+
+        tbody
+          tr.small
+            td= node.health ? moment.duration(node.health.os.uptime * 1000).humanizePrecisely({mostPreciseUnit: 'hours'}) : ''
+            td= node.health ? node.health.cpu.utilization + '%' : ''
+            td= node.health ? formatBytes(node.health.mem.free) : ''
+            td= node.health ? formatBytes(node.health.process.memory.rss) : ''
+            td= DateTime.fromMillis(node.lastHeartbeatTime).toLocaleString(DateTime.DATETIME_SHORT)
+            td= node.statistics ? node.statistics.requests.total.count : ''
+            td= node.statistics ? node.statistics.requests.total.rps.current : ''
+            td= node.statistics ? node.statistics.requests.total.latency.mean : '?'
+            td= node.statistics ? node.statistics.requests.total.latency.median : '?'
+
+            
+
+

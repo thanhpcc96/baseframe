@@ -1,0 +1,11 @@
+admin: node ./src/brokers/admin/admin.bootstrap.js
+api: node ./src/brokers/api/api.bootstrap.js
+bot: node ./src/brokers/bot/bot.bootstrap.js
+config: node ./src/brokers/config/config.bootstrap.js
+data: node ./src/brokers/data/data.bootstrap.js
+email: node ./src/brokers/email/email.bootstrap.js
+filter: node ./src/brokers/filter/filter.bootstrap.js
+historical: node ./src/historical/historical/historical.bootstrap.js
+ig: node ./src/brokers/ig/ig.bootstrap.js
+list: node ./src/brokers/list/list.bootstrap.js
+statistic: node ./src/brokers/statistic/statistic.bootstrap.js

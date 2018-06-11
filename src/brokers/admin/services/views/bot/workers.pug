@@ -1,0 +1,42 @@
+extends ./../layouts/base.pug
+
+
+block content
+
+  //- title
+  div(class="row")
+    div(class="col-12")          
+      h1.font-weight-light Bot workers
+
+  //- buttons
+  div(class="row pt-4 pb-4")
+    div(class="col-12")
+      a(href="/panel/bot/workers/start-all" class="btn btn-light mr-4") Start all 
+      a(href="/panel/bot/workers/stop-all" class="btn btn-light") Stop all 
+
+  //- forms
+  div(class="row mt-2")
+
+    //- form 1
+    div(class="col-12")
+      div.table-responsive
+        table.table.table-striped.table-sm
+          thead
+            tr
+              th(scope="col") workerId
+              th(scope="col") nodeID
+              th(scope="col") queue
+              th(scope="col") beat
+              th(scope="col") status
+              th(scope="col") created
+              
+          tbody
+            each worker in workers
+              tr.small
+                td #{worker.workerId}
+                td #{worker.nodeID}
+                td #{worker.queue}
+                td #{worker.beat}
+                td #{worker.status}
+                td #{ DateTime.fromISO(worker.createdAt).toLocaleString() }
+

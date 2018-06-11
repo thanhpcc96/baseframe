@@ -1,0 +1,14 @@
+{
+  "allow": {
+    "cycle": {
+      "start": true,
+      "stop": true
+    }
+  },
+  "account":{
+    "default":{
+      "actived": false,
+      "time": 604800000
+    }
+  }
+}

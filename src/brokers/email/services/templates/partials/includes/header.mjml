@@ -1,0 +1,14 @@
+<mj-section padding-bottom="40" padding-top="40">
+  <mj-column>
+    <mj-text font-size="35" font-weight="600" color="#EC4756" align="center">
+      SmartGram
+    </mj-text>
+  </mj-column>
+</mj-section>
+
+<mj-section padding-bottom="40" padding-top="0" padding-left="0" padding-right="0">
+  <mj-column>
+    <mj-divider border-width="1px" border-style="solid" border-color="#EBEBEB" />
+  </mj-column>
+</mj-section>
+

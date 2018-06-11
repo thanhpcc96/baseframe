@@ -1,0 +1,59 @@
+extends ./../layouts/base.pug
+
+mixin queueJob(job)
+  div(style="white-space:nowrap;")
+    span= job.status.substr(0, 4) + ' / '
+    span= job.command
+    //- span= DateTime.fromISO(job.runAt).toLocaleString({ year: '2-digit', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit'})
+
+block content
+
+  //- title
+  div(class="row")
+    div(class="col-12")          
+      h1.font-weight-light Bot IgAccounts
+
+  //- forms
+  div(class="row mt-2")
+
+    //- form 1
+    div(class="col-12")
+      div.table-responsive
+        table.table.table-striped.table-sm
+          thead
+            tr
+              th(scope="col") igId
+              th(scope="col") state
+              th(scope="col") tickLocked
+              th(scope="col") lockedAt
+              th(scope="col") unlockedAt
+              th(scope="col") queue control
+              th(scope="col") queue cycle
+              th(scope="col") queue management
+              th(scope="col") error
+              th(scope="col") created
+              
+          tbody
+            each igAccount in igAccounts
+              tr.small
+                td #{igAccount.igAccountId}
+                td #{igAccount.state}
+                td #{igAccount.tickLocked}
+                td #{ DateTime.fromISO(igAccount.lockedAt).toLocaleString(DateTime.DATETIME_SHORT) }
+                td #{ DateTime.fromISO(igAccount.unlockedAt).toLocaleString(DateTime.DATETIME_SHORT) }
+                
+                td
+                  each job in igAccount.queues.cycle
+                    +queueJob(job)
+
+                td
+                  each job in igAccount.queues.control
+                    +queueJob(job)
+
+                td
+                  each job in igAccount.queues.management
+                    +queueJob(job)
+
+                td #{igAccount.error}
+                td #{ DateTime.fromISO(igAccount.unlockedAt).toLocaleString() }
+

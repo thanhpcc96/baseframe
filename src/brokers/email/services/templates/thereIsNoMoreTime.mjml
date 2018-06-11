@@ -1,0 +1,25 @@
+
+{{#extend "base"}}
+ 
+    {{#content "main"}}
+
+      <mj-section>
+        <mj-column>
+          <mj-text>
+          Hey {{name}},
+          </mj-text>
+          <mj-text>
+            Your account @{{accountUsername}} has been stopped because it has run out of time.
+          </mj-text>
+        </mj-column>
+      </mj-section>
+
+      <mj-section padding-top="40">
+        <mj-column>
+          <mj-button href="{{link}}">See your account</mj-button>
+        </mj-column>
+      </mj-section>
+
+    {{/content}}
+ 
+{{/extend}}

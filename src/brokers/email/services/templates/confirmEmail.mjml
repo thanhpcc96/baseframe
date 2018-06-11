@@ -1,0 +1,25 @@
+
+{{#extend "base"}}
+ 
+    {{#content "main"}}
+
+      <mj-section>
+        <mj-column>
+          <mj-text>
+          Hey {{name}},
+          </mj-text>
+          <mj-text>
+            We received a request to set your SmartGram email to {{to}}. If this is correct, please confirm by clicking the button below.
+          </mj-text>
+        </mj-column>
+      </mj-section>
+
+      <mj-section padding-top="40">
+        <mj-column>
+          <mj-button href="{{link}}">Confirm email</mj-button>
+        </mj-column>
+      </mj-section>
+
+    {{/content}}
+ 
+{{/extend}}

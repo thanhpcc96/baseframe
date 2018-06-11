@@ -1,0 +1,28 @@
+<mjml>
+
+  <mj-head>
+    <mj-title>SmartGram</mj-title>
+    <mj-font name="Nunito" href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,400" />
+    <mj-attributes>
+      <mj-all font-family="Nunito Sans,-apple-system,system-ui,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif" padding="0" />
+      <mj-text font-weight="300" font-size="20" color="#484848" align="left" vertical-align="middle"/>
+      <mj-section padding-left="25" padding-right="25"/>
+      <mj-column vertical-align="middle" width="100%"/>
+      <mj-button background-color="#EC4756" color="white" align="left" font-size="20" font-weight="300"/>
+    </mj-attributes>
+  </mj-head>
+
+  <mj-body>
+    <mj-container background-color="#F8F8F8">
+
+      {{> header }}
+
+      {{#block "main"}}
+      {{/block}}
+
+      {{> footer }}
+
+    </mj-container>
+  </mj-body>
+</mjml>
+

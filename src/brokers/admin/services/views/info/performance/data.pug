@@ -1,0 +1,29 @@
+
+
+table(class="w-100 table-hover")
+  thead
+    tr
+      td Type
+      td id
+      td Available
+      td CPU
+      td App mem.
+      td Req. counts
+      td RPS Req/sec
+      td Req. latency mean
+      td Req. latency median     
+
+  each node, index in nodes
+          
+    tbody
+      tr.small
+        td= node.type
+        td= node.id
+        td(class=node.available ? 'text-success' : 'text-danger')= node.available
+        td= node.health ? node.health.cpu.utilization + '%' : '?'
+        td= node.health ? formatBytes(node.health.process.memory.rss) : '?'
+        td= node.statistics ? node.statistics.requests.total.count : '?'
+        td= node.statistics ? node.statistics.requests.total.rps.current : '?'
+        td= node.statistics && node.statistics.requests.total.latency ? node.statistics.requests.total.latency.mean : '?'
+        td= node.statistics && node.statistics.requests.total.latency ? node.statistics.requests.total.latency.median : '?'
+        

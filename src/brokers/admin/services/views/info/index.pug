@@ -1,0 +1,17 @@
+extends ./../layouts/base.pug
+
+
+block content
+
+  //- body
+  div(class="row mt-2")
+
+    //- nodes
+    div(class="col-12")
+    
+      script.
+        setTimeout(function(){
+          $("#cont-data").load("/panel/info/nodes");
+        }, 1000);
+
+      div(id="cont-data")

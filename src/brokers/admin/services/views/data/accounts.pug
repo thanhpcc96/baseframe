@@ -1,0 +1,49 @@
+extends ./../layouts/base.pug
+
+
+block content
+
+  //- title
+  div(class="row")
+    div(class="col-12")          
+      h1.font-weight-light Data IgAccounts
+
+  //- forms
+  div(class="row mt-2")
+
+    //- form 1
+    div(class="col-12")
+      div.table-responsive
+        table.table.table-striped.table-sm
+          thead
+            tr
+              th(scope="col") username
+              //-th(scope="col") igId
+              th(scope="col") status
+              th(scope="col") activity
+              th(scope="col") time
+              th(scope="col") medias
+              th(scope="col") followers
+              th(scope="col") followings
+              th(scope="col") private
+              th(scope="col") verified
+              th(scope="col") business
+              th(scope="col") owner
+              th(scope="col") created
+              
+          tbody
+            each igAccount in igAccounts
+              tr
+                td #{igAccount.username}
+                //-td #{igAccount.igAccountId}
+                td #{igAccount.status}
+                td #{igAccount.activity}
+                td #{ moment.duration(igAccount.time).humanizePrecisely() }
+                td #{igAccount.mediaCount}
+                td #{igAccount.followerCount}
+                td #{igAccount.followingCount}
+                td #{igAccount.isPrivate}
+                td #{igAccount.isVerified}
+                td #{igAccount.isBusiness}
+                td #{igAccount.owner}
+                td #{ DateTime.fromISO(igAccount.createdAt).toLocaleString() }

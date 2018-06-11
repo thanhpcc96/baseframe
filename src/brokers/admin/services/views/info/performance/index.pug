@@ -1,0 +1,28 @@
+extends ./../../layouts/base.pug
+
+block content
+
+  include ./../submenu.pug
+
+  //- title
+
+  div(class="row")
+    div(class="col-12")          
+      h3.font-weight-light Performance
+
+  //- body
+  div(class="row mt-2")
+
+    //- nodes
+    div(class="col-12")
+    
+      script.
+        const loadData = function(){
+          $("#cont-data").load("/panel/info/performance/data", (responseText, textStatus, jqXHR) =>{
+            setTimeout(function(){loadData();}, 1000);
+          } );
+        };
+
+        setTimeout(function(){loadData();}, 1000);
+        
+      div(id="cont-data")

@@ -1,0 +1,52 @@
+
+{{#extend "base"}}
+ 
+    {{#content "main"}}
+
+      <mj-section>
+        <mj-column>
+          <mj-text>
+          Dear {{name}},
+          </mj-text>
+          <mj-text>
+            Welcome to SmartGram.io
+          </mj-text>
+        </mj-column>
+      </mj-section>
+
+      <mj-section padding-top="40">
+        <mj-column>
+          <mj-text>
+            We&apos;re really excited you&apos;ve decided to give us a try. In case you have any questions, feel free to reach out to us at support@smartgram.io.
+          </mj-text>
+        </mj-column>
+      </mj-section>
+
+      <mj-section padding-top="40">
+        <mj-column>
+          <mj-text>
+            Confirm your email by clicking the button below.
+          </mj-text>
+        </mj-column>
+      </mj-section>
+
+      <mj-section padding-top="10">
+        <mj-column>
+          <mj-button href="{{link}}">Confirm email</mj-button>
+        </mj-column>
+      </mj-section>
+
+      <mj-section padding-top="40">
+        <mj-column>
+          <mj-text>
+            Thanks,
+          </mj-text>
+          <mj-text>
+            The SmartGram.io team
+          </mj-text>
+        </mj-column>
+      </mj-section>
+
+    {{/content}}
+ 
+{{/extend}}

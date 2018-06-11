@@ -1,0 +1,50 @@
+extends ./../../layouts/base.pug
+
+block content
+
+  include ./../submenu.pug
+
+  //- title
+
+  div(class="row")
+    div(class="col-12")          
+      h3.font-weight-light Actions
+
+  //- body
+  div(class="row mt-2")
+
+    //- nodes
+    div(class="col-12")
+    
+      div(id="cont-data")
+
+        each node, i in nodes
+
+          div(class="card rounded-0 border-bottom-0")
+            
+            div(class="card-header pt-2 pb-2")
+              span(class="text-muted small")= node.id
+            
+            div(class="card-body pt-2 pb-2")
+
+              //- table 1
+              table(class="w-100")
+                thead
+                  tr
+                    td name
+                    td available
+                    td count
+                    td hashLocal
+                    td metrics
+                    td params
+                    
+                tbody
+                  each action, j in node.actions
+                    tr.small
+                      td= action.name
+                      td(class=action.available ? 'text-success' : 'text-danger')= action.available
+                      td= action.count
+                      td= action.hashLocal
+                      td= action.action ? JSON.stringify(action.action.metrics) : '?'
+                      td= action.action ? JSON.stringify(action.action.params) : '?'
+

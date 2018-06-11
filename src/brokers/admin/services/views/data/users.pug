@@ -1,0 +1,44 @@
+extends ./../layouts/base.pug
+
+
+block content
+
+  //- title
+  div(class="row")
+    div(class="col-12")          
+      h1.font-weight-light Data Users
+
+  //- forms
+  div(class="row mt-2")
+
+    //- form 1
+    div(class="col-12")
+      div.table-responsive
+        table.table.table-striped.table-sm
+          thead
+            tr
+              th(scope="col") Name
+              th(scope="col") Email
+              th(scope="col") Email verified
+              th(scope="col") IgAccounts
+              th(scope="col") Audiences
+              th(scope="col") Enabled
+              th(scope="col") locked
+              th(scope="col") failedLogins
+              th(scope="col") Impersonate
+              th(scope="col") created
+              
+          tbody
+            each user, i in users
+              tr
+                td #{user.firstName + ', ' + user.lastName}
+                td #{user.email}
+                td #{user.emailVerified}
+                td #{user.instagramAccounts}
+                td #{user.audiences}
+                td #{user.isEnabled}
+                td #{user.isLocked}
+                td #{user.failedLoginCount}
+                td 
+                  a(href="http://app.smartgram.io?al=" + user.api.autoLoginToken) impersonate
+                td #{ DateTime.fromISO(user.createdAt).toLocaleString() }

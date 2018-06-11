@@ -1,0 +1,64 @@
+extends ./layouts/base.pug
+
+block content
+
+  //- title
+  div(class="row")
+    div(class="col-12")          
+      h1.font-weight-light Configuration
+
+  //- forms
+  div(class="row mt-2")
+
+    //- form 1
+    div(class="col-6")
+      div(class="card")
+        div(class="card-header")
+          span Configuration cycle
+        
+        div(class="card-body")
+          form(method="POST", action="/panel/configuration/cycle")
+            div(class="form-group")
+              label Allow user to start cycle
+              select(class="form-control" name="allow.cycle.start")
+                option(value="on" selected=settings.allow.cycle.start) Yes
+                option(value="off" selected=!settings.allow.cycle.start) No
+
+            div(class="form-group")
+              label Allow user to stop cycle
+              select(class="form-control" name="allow.cycle.stop")
+                option(value="on" selected=settings.allow.cycle.stop) Yes
+                option(value="off" selected=!settings.allow.cycle.stop) No
+
+            div(class="form-group")
+              button(type="submit" class="btn btn-primary") Save
+
+    //- form 2
+    div(class="col-6")
+      div(class="card")
+        div(class="card-header")
+          span Default options account
+        
+        div(class="card-body")
+          form(method="POST", action="/panel/configuration/defaults")
+            div(class="form-group")
+              label Account actived after creating
+              select(class="form-control" name="account.default.actived")
+                option(value="on" selected=settings.account.default.actived) Yes
+                option(value="off" selected=!settings.account.default.actived) No
+
+            div(class="form-group")
+              label Free time after creating
+              select(class="form-control" name="account.default.time")
+                option(value="86400000" selected=settings.account.default.time == 86400000) 1 day
+                option(value="172800000" selected=settings.account.default.time == 172800000) 2 days
+                option(value="259200000" selected=settings.account.default.time == 259200000) 3 days
+                option(value="345600000" selected=settings.account.default.time == 345600000) 4 days
+                option(value="432000000" selected=settings.account.default.time == 432000000) 5 days
+                option(value="518400000" selected=settings.account.default.time == 518400000) 6 days
+                option(value="604800000" selected=settings.account.default.time == 604800000) 7 days
+
+            div(class="form-group")
+              button(type="submit" class="btn btn-primary") Save
+
+
